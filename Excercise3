@@ -1,0 +1,71 @@
+#Write a function that draws a grid like the following:
+#+ - - - - + - - - - +
+#|         |         |
+#|         |         |
+#|         |         |
+#|         |         |
+#+ - - - - + - - - - +
+#|         |         |
+#|         |         |
+#|         |         |
+#|         |         |
+#+ - - - - + - - - - +
+
+def do_twice(f):
+    f()
+    f()
+
+def do_four(f):
+    do_twice(f)
+    do_twice(f)
+
+def row():
+    print('+ - - - -', end=' ')
+
+def column():
+    print('|        ', end=' ')
+
+def corner():
+    do_twice(row)
+    print('+')
+
+def print_column():
+    do_twice(column)
+    print('|')
+
+def print_row():
+    corner()
+    do_four(print_column)
+
+def square():
+    do_twice(print_row)
+    corner()
+
+square()
+
+print('*' * 15)
+
+#Write a function that draws a similar grid with four rows and four columns.
+def row():
+    print('+ - - - -' * 2, end=' ')
+
+def column():
+    print('|        ' * 2, end=' ')
+
+def corner():
+    do_twice(row)
+    print('+')
+
+def print_column():
+    do_twice(column)
+    print('|')
+
+def print_row():
+    corner()
+    do_four(print_column)
+
+def square():
+    do_four(print_row)
+    corner()
+
+square()
